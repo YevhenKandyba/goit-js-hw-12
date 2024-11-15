@@ -7,12 +7,165 @@
 /* Common styles */
 @import url('./reset.css');
 @import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
+/* @import url('./container.css'); */
+/* @import url('./animations.css'); */
 
 /* Sections style */
-@import url('./header.css');
+/* @import url('./header.css');
 @import url('./vite-promo.css');
 @import url('./badges.css');
 @import url('./back-link.css');
-@import url('./footer.css');
+@import url('./footer.css'); */
+
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  gap: 8px;
+}
+
+.form-input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+
+.form-input:hover {
+  border: 1px solid #000;
+}
+
+.form-input:active {
+  border-color: #4e75ff;
+  color: #2e2f42;
+}
+
+.form-btn {
+  border-radius: 8px;
+  width: 75px;
+  height: 40px;
+  background: #4e75ff;
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  /* display: block;
+  margin: 20px auto; */
+}
+
+.form-btn:hover {
+  background: #6c8cff;
+}
+
+.form-btn-lm {
+  border-radius: 8px;
+    width: 125px;
+    height: 40px;
+    background: #4e75ff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.form-btn-lm:hover{
+  background: #6c8cff;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 1128px;
+}
+
+.foto {
+  flex-basis: calc((100% - 60px) / 3);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #808080;
+  height: 200px;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+  height: 152px;
+}
+
+.coments {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 4px 20px;
+}
+
+p {
+  text-align: center;
+}
+
+.text {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+.numb {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+loader {
+  display: none;
+
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+  
