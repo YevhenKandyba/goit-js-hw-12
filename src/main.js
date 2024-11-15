@@ -68,7 +68,7 @@ loadMoreBtn.addEventListener('click', async function () {
             iziToast.info({ message: "We're sorry, but you've reached the end of search results." });
         }
 
-        // Smooth scroll
+        
         const { height: cardHeight } = gallery.firstElementChild.getBoundingClientRect();
         window.scrollBy({
             top: cardHeight * 2,
