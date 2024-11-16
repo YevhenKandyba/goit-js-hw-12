@@ -12,11 +12,13 @@ let totalHits = 0;
 
 const form = document.querySelector('.form');
 const gallery = document.querySelector('.gallery');
-const loadMoreBtn = document.createElement('button');
-loadMoreBtn.textContent = 'Load more';
-loadMoreBtn.classList.add('form-btn-lm');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+const initialLoader = document.getElementById('initialLoader');
+const loadingSpinner = document.getElementById('loadingSpinner');
+
+
 loadMoreBtn.style.display = 'none';
-document.body.appendChild(loadMoreBtn);
+loadingSpinner.style.display = 'none';
 
 form.addEventListener('submit', async function (event) {
     event.preventDefault();
@@ -30,6 +32,7 @@ form.addEventListener('submit', async function (event) {
 
     gallery.innerHTML = '';
     loadMoreBtn.style.display = 'none';
+    initialLoader.style.display = 'block';
 
     try {
         const { images, totalHits: hits } = await fetchImages(query, page);
@@ -45,11 +48,18 @@ form.addEventListener('submit', async function (event) {
         }
     } catch (error) {
         console.error("Error fetching images:", error);
+    } finally {
+        initialLoader.style.display = 'none';
     }
 });
 
 loadMoreBtn.addEventListener('click', async function () {
     page += 1;
+
+    loadMoreBtn.style.display = 'none'; 
+    loadingSpinner.style.display = 'block';
+    
+
 
     try {
         const { images } = await fetchImages(query, page);
@@ -64,9 +74,12 @@ loadMoreBtn.addEventListener('click', async function () {
         lightbox.refresh();
 
         if (gallery.children.length >= totalHits) {
-            loadMoreBtn.style.display = 'none';
             iziToast.info({ message: "We're sorry, but you've reached the end of search results." });
+            loadMoreBtn.style.display = 'none';
+        } else {
+            loadMoreBtn.style.display = 'block';
         }
+
 
         
         const { height: cardHeight } = gallery.firstElementChild.getBoundingClientRect();
@@ -76,5 +89,9 @@ loadMoreBtn.addEventListener('click', async function () {
         });
     } catch (error) {
         console.error("Error fetching images:", error);
+    } finally {
+        loadingSpinner.style.display = 'none';
     }
 });
+
+

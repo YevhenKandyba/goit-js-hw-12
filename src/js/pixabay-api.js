@@ -7,8 +7,8 @@ const BASE_URL = 'https://pixabay.com/api/';
 const PER_PAGE = 15;
 
 export async function fetchImages(query, page) {
-    const loadingSpinner = document.getElementById('loadingSpinner');
-    loadingSpinner.style.display = 'block';
+    const initialLoader = document.getElementById('initialLoader');
+    initialLoader.style.display = 'block';
 
     try {
         const { data } = await axios.get(BASE_URL, {
@@ -33,7 +33,7 @@ export async function fetchImages(query, page) {
         iziToast.error({ message: "An error occurred. Please try again." });
         throw error;
     } finally {
-        loadingSpinner.style.display = 'none';
+        initialLoader.style.display = 'none';
     }
 }
 
